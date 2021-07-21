@@ -1,76 +1,82 @@
 .Header {
-  display: grid;
-  grid-template-areas: "logo nav";
-  height: 50px;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-h3 {
-  color: #1d3557;
-  display: inline-block;
-  margin: 0;
-  text-transform: uppercase;
-  font-size: 15px;
-  &:after {
-    display: block;
-    content: "";
-    border-bottom: solid 3px #E63946;
-    transform: scaleX(0);
-    transition: transform 400ms ease-in-out;
+    display: grid;
+    grid-template-areas: "logo nav";
+    height: 50px;
+    padding-top: 10px;
+    //border-bottom: 1px solid lightgray;
+    //position: fixed;
+    z-index: 10;
+    opacity: 1;
   }
-  &:hover:after {
-    transform: scaleX(1);
+  h3 {
+    color: #1d3557;
+    display: inline-block;
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 15px;
+    &:after {
+      display: block;
+      content: "";
+      border-bottom: solid 3px #e63946;
+      transform: scaleX(0);
+      transition: transform 400ms ease-in-out;
+    }
+    &:hover:after {
+      transform: scaleX(1);
+    }
+    &.fromLeft:after {
+      transform-origin: 0% 50%;
+    }
   }
-  &.fromLeft:after {
-    transform-origin: 0% 50%;
+  .menu {
+    color: #1d3557;
   }
-}
-.menu {
-  color: #1d3557;
-}
-.active {
-  color: #1d3557;
-  border-bottom: 3px solid #E63946;
-}
-.Nav {
-  grid-area: nav;
-  display: grid;
-  grid-template-columns: repeat(5, auto);
-  align-items: center;
-  justify-items: center;
-  margin-bottom: 20px;
-  a {
-    text-decoration: none;
-  }
-}
-.Burger {
-  display: none;
-}
-.NavAnimation-enter {
-  opacity: 0;
-  transform: scale(0.5);
-}
-.NavAnimation-enter-active {
-  opacity: 1;
-  transform: translateX(0);
-  transition: opacity 350ms, transform 350ms;
-}
-.NavAnimation-exit {
-  opacity: 1;
-}
-
-@media (max-width: 700px) {
-  .Header {
-    grid-template-areas: "logo burger" "nav nav";
-    height: auto;
+  .active {
+    color: #1d3557;
+    border-bottom: 3px solid #e63946;
   }
   .Nav {
-    grid-template-rows: repeat(5, auto);
-    grid-template-columns: none;
-    grid-row-gap: 20px;
+    grid-area: nav;
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    align-items: center;
+    justify-items: center;
+    margin-bottom: 20px;
+    a {
+      text-decoration: none;
+    }
   }
   .Burger {
-    display: block;
-    font-size: 25px;
+    display: none;
   }
-}
+  .NavAnimation-enter {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  .NavAnimation-enter-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 350ms, transform 350ms;
+  }
+  .NavAnimation-exit {
+    opacity: 1;
+  }
+  
+  @media (max-width: 700px) {
+    .Header {
+      grid-template-areas: "logo burger" "nav nav";
+      height: auto;
+    }
+    .Nav {
+      grid-template-rows: repeat(5, auto);
+      grid-template-columns: none;
+      grid-row-gap: 20px;
+    }
+    .Burger {
+      display: block;
+      font-size: 25px;
+      position: relative;
+      left: 10px;
+    }
+  }
+  

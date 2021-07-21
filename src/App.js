@@ -1,4 +1,4 @@
-import { BrowserRouter as Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/home/Home";
 import About from "./pages/aboutMe/About";
@@ -10,16 +10,18 @@ import Header from "./components/header/Header";
 function App() {
   return (
     <>
-      <Header />
-      <div  className="app">
-      <Switch>
-        <Route path="/about me" component={About} />
-        <Route path="/services" component={Services} />
-        <Route path="/projects" component={Projects} />
-        <Route path="/contacts" component={Contacts} />
-        <Route path="/" exact component={Home} />
-      </Switch>
-      </div>
+      <Router>
+        <Header />
+        <div className="app">
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/about" component={About} />
+            <Route path="/services" component={Services} />
+            <Route path="/projects" component={Projects} />
+            <Route path="/contacts" component={Contacts} />
+          </Switch>
+        </div>
+      </Router>
     </>
   );
 }

@@ -1,0 +1,15 @@
+.text {
+	display: block;
+	width: 120%;
+	height: 200px;
+		&__welcome {
+		text-align: left;
+			 &--display {
+		 	font-size: 1.5rem;
+		 	width: 300px;
+			 }
+			 &>h1>span {
+			 color: #E63946;
+			 }
+		}
+	}
