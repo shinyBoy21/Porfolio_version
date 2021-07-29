@@ -1,9 +1,11 @@
 .App {
   text-align: center;
+  overflow-x: hidden;
 }
 .app {
   margin-right: 20px;
   margin-left: 20px;
+  overflow-x: hidden;
 }
 
 .App-logo {
